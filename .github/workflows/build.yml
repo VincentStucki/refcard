@@ -13,5 +13,11 @@ jobs:
       - name: Checkout the App
         uses: actions/checkout@v2
 
-      - name: Install dependencies
+      - name: install dependencies
         run: npm i
+
+      - name: build the app
+        run: npm run build
+
+      - name: debug build folder
+        run: ls -la
