@@ -9,7 +9,7 @@ function App() {
         <Col>
           <h1>Architecture Ref. Card 2 (19.02.2025)</h1>
           <div className="message">
-            react app ... up and running
+            react app ... up and runnings
           </div>
         </Col>
         <Row>
