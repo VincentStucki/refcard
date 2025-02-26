@@ -1,9 +1,3 @@
-# github action react dockerhubs
-
-1. Dockerfile erstellen
-
-2. yml-file im .github/workflows erstellen
-```yaml
 name: Build and Push Docker image
 
 on:
@@ -40,10 +34,3 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/my-react-app:latest
-```
-3. Sicherheiten konfigurieren
-    1. repository 
-    2. Settings > Secrets and variables > actions
-    3. Klick: new repository secret
-    4. Füge **DOCKER_USERNAME** und **DOCKER_PASSWORD** hinzu
-    5. auf main pushen
