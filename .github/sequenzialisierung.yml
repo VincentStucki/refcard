@@ -55,13 +55,14 @@ jobs:
         run: echo "Deployment durchgeführt"
   
   compatibility:
-    needs: testing
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14, 16, 18]
-    steps:
-      - name: Run Tests on Different Node Versions
-        run: echo "Tests erfolgreich"
+  needs: testing
+  runs-on: ubuntu-latest
+  strategy:
+    matrix:
+      node-version: [14, 16, 18]
+  steps:
+    - name: Run Tests on Different Node Versions
+      run: echo "Tests erfolgreich"
+
       
     
