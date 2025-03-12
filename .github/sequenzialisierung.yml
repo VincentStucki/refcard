@@ -1,0 +1,64 @@
+name: CI Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Job
+        run: echo "Setup abgeschlossen"
+
+  linter:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Linter
+        run: echo "Linter erfolgreich"
+
+  testing:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Tests
+        run: echo "Tests erfolgreich"
+
+  check_config:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Configuration
+        run: echo "Konfiguration überprüft"
+
+  update_docs:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update Docs
+        run: echo "Dokumentation aktualisiert"
+
+  build:
+    needs: [linter, testing, check_config]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Deployment Artifact
+        run: echo "Build erfolgreich"
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Server
+        run: echo "Deployment durchgeführt"
+  
+  compatibility:
+    needs: testing
+    runs-on: ubuntu-latest
+    stragety:
+      matrix:
+        node-version: [14, 16, 18]
+    steps:
+      - name: Run Tests on Different Node Versions
+        run: echo "Tests erfolgreich"
+      
+    
