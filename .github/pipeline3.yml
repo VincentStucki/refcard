@@ -55,14 +55,18 @@ jobs:
         run: echo "Deployment durchgeführt"
   
   compatibility:
-  needs: testing
-  runs-on: ubuntu-latest
-  strategy:
-    matrix:
-      node-version: [14, 16, 18]
-  steps:
-    - name: Run Tests on Different Node Versions
-      run: echo "Tests erfolgreich"
-
+    needs: testing
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
+    steps: 
+      - name: Set up Node.js 
+        uses: actions/setup-node@v3 
+        with: 
+          node-version: ${{matrix.node-version}}  # Variable für die aktuelle Version 
+          
+      - name: Run Tests 
+        run: echo "Test läuft mit Node.js ${{matrix.node-version}}"
       
     
