@@ -42,6 +42,7 @@ jobs:
 
   build:
     needs: [linter, testing, check_config]
+    if: success() || needs.testing.result == 'failure'
     runs-on: ubuntu-latest
     steps:
       - name: Build Deployment Artifact
